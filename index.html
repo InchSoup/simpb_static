@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SimPB.">
+  <meta name="keywords" content="SimPB">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SimPB: A Single Model for 2D and 3D Object Detection from Multiple Cameras</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SimPB: A Single Model for 2D and 3D Object Detection from Multiple Cameras</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              Yingqi Tang<sup>*</sup>,</span>
+            <span class="author-block">
+              Zhaotie Meng<sup>*</sup>,</span>
+            <span class="author-block">
+              Guoliang Chen<sup></sup>,</span>
+            <span class="author-block">
+              Erkang Cheng<sup>✉</sup></span>
+          </div>
+
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">Nullmax</span>
+          </div>
+    
+          <p></p>
+          <span class="author-block"><sup>*</sup>Equal Contributions.</span>
+          <span class="author-block"><sup>✉</sup>Corresponding Authors.</span>
+          </div>
+        </div>
+
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2403.10353"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+            
+            <span class="link-block">
+              <a href="https://github.com/nullmax-vision/SimPB"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3" style="margin-top: -60px;">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The field of autonomous driving has attracted considerable interest in approaches that directly infer 3D objects in the Bird's Eye View (BEV) from multiple cameras.
+            Some attempts have also explored utilizing 2D detectors from single images to enhance the performance of 3D detection. However, these approaches rely on a two-stage process with separate detectors,
+            where the 2D detection results are utilized only once for token selection or query initialization. In this paper, we present a single model termed <i>SimPB</i>, which <b>Sim</b>ultaneously detects 2D objects in the <b>P</b>erspective view and 3D objects in the <b>B</b>EV space from multiple cameras.
+            To achieve this, we introduce a hybrid decoder consisting of several multiview 2D decoder layers and several 3D decoder layers, specifically designed for their respective detection tasks. A Dynamic Query Allocation module and an Adaptive Query Aggregation module are proposed to continuously
+            update and refine the interaction between 2D and 3D results, in a cyclic 3D-2D-3D manner. Additionally, Query-group Attention is utilized to strengthen the interaction among 2D queries within each camera group. 
+            In the experiments, we evaluate our method on the nuScenes dataset and demonstrate promising results for both 2D and 3D detection tasks. Our code is available at: https://github.com/nullmax-vision/SimPB.
+          </p>
+        </div>
+        
+        <h2 class="title is-3" style="margin-top: 20px;">Framework</h2>
+        <img src="./static/images/arch.png" class="interpolation-image" alt="Interpolation end reference image."/>
+        
+        <h2 class="title is-3" style="margin-top: 20px;">Visualization</h2>
+        <video id="matting-video-1" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/video.mp4" type="video/mp4">
+        </video>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{simpb,
+  title     = {SimPB: A Single Model for 2D and 3D Object Detection from Multiple Cameras},
+  author    = {Yingqi Tang and Zhaotie Meng and Guoliang Chen and Erkang Cheng},
+  journal   = {ECCV},
+  year      = {2024},
+  }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/nullmax-vision/SimPB" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This static website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>, thanks them provide an excellent template. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
